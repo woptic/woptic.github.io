@@ -8,7 +8,16 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
-
+    <script type="text/javascript"
+            src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+      });
+      MathJax.Hub.Config({
+      TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -19,7 +28,7 @@
   <body>
     <header>
       <div class="inner">
-        <h1>woptic</h1>
+        <h1><span style="font-variant:small-caps">woptic</span></h1>
         <h2>optical conductivity with Wannier functions and adaptive
           k-mesh refinement
           — <a href="http://arxiv.org/abs/1507.04881">arXiv:1507.04881</a></a></h2>
@@ -31,14 +40,46 @@
       <div class="inner clearfix">
       <img id="logo" src="woptic_logo.png" />
         <section id="main-content">
-<p>This automatic page generator is the easiest way to create
-beautiful pages for all of your projects. Author your page content
-here <a href="https://guides.github.com/features/mastering-markdown/">using
-GitHub Flavored Markdown</a>, select a template crafted by a designer,
-and publish. After your page is generated, you can check out the
-new <code>gh-pages</code> branch locally. If you’re using GitHub
-Desktop, simply sync your repository and you’ll see the new
-branch.</p>
+<p>
+  <span style="font-variant:small-caps">Woptic</span> calculates the optical conductivity of interacting systems in a
+maximally-localized Wannier basis.
+
+\begin{equation}
+\label{eq:optcond}
+\tag{$*$}
+\DeclareMathOperator{\tr}{tr}
+\newcommand\dd      {\text{d}}
+\newcommand\ii      {\text{i}}
+\newcommand\ee      {\text{e}}
+\newcommand\ii      {\text{i}}
+  σ_{αβ}(Ω) = \frac{2\pi e^2 \hbar}{V_\text{uc}}
+  \sum_k \int\!\dd ω\mathop{} \tfrac{f(ω)-f(ω+Ω)}{Ω}
+  \tr\left[A(ω,k)\,V^α(k)\,A(ω,k)\,V^β(k)\right],
+\end{equation}
+
+where $σ_{αβ}$ is the $(α,β)$ element of the optical conductivity
+tensor ($α,β \in \{x,y,z\}$), $V_\text{uc}$ the unit cell volume, $f$
+the Fermi function, $A= \frac\ii{2 π}(G-G^\dagger)$ the generalized
+spectral function \cite{Wissgott2012,Tomczak2009a,Jan}, and $V^α$ the
+group velocity in direction $α$. The numerical bottleneck in
+evaluating \eqref{eq:optcond} is the k-summation, since usually many
+k-points are required to obtain converged results. For a speed-up in
+k-mesh convergence, \woptic therefore employs an adaptively refined
+tetrahedral tiling of k-space.
+</p>
+
+<p>
+It is built on top of
+Wannier90 and Wien2k.
+
+\Woptic consists of two main programs: \womain, which calculates the
+optical conductivity, and \reftet, where the k-mesh is refined; as
+well as several smaller support programs.  The individual programs are
+normally called by means of the driver script \woprog.  This guide
+provides technical documentation for \woptic.  For details on the
+underlying formalism and algorithm, see Refs.~\cite{Philipp, Elias,
+  woptic}.
+</p>
 
 <h3>
 <a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
