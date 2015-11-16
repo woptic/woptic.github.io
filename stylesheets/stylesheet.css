@@ -99,6 +99,13 @@ a:hover {
   outline: 0;
 }
 
+header a {
+    color: #9ddcff;
+}
+header a:hover {
+    color: #fff;
+}
+
 /* Text-level semantics
    ========================================================================== */
 
@@ -479,7 +486,7 @@ header h2 {
 
 .inner {
   position: relative;
-  width: 940px;
+  width: 800px;
   margin: 0 auto;
 }
 
@@ -490,11 +497,20 @@ header h2 {
 
 #main-content {
   float: left;
-  width: 690px;
+  width: 540px;
 }
 
 #main-content img {
   max-width: 100%;
+}
+
+#logo {
+  float: left;
+  margin-left: -200px;
+  padding-right: 0;
+  padding-left: 0;
+  margin-right: 0;
+  width: 100pt;
 }
 
 aside#sidebar {
