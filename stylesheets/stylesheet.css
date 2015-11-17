@@ -123,7 +123,8 @@ abbr[title] {
 
 b,
 strong {
-  font-weight: bold;
+  font-weight: normal;
+  color: #2879d0;
 }
 
 /**
@@ -438,7 +439,7 @@ body {
   font-family: 'Carlito', 'Helvetica Neue', Helvetica, Arial, serif;
   font-size: 15px;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 110%;
   color: #666;
   background: #fafafa url(../images/body-bg.jpg) 0 0 repeat;
 }
@@ -513,6 +514,58 @@ header h2 {
   width: 100pt;
 }
 
+.woptic {
+  font-variant:small-caps;
+}
+.woptic:before {
+  content: "woptic";
+}
+
+p.bibitem {
+    font-size: 100%;
+    line-height: 1;
+}
+a.bibitem:before {
+  padding-right: .7em;
+  margin-left: -1.5em;
+  content: "["attr(id)"]";
+  color: #666;
+}
+
+span.cite:before {
+    content: "[";
+}
+span.cite:after {
+    content: "]";
+}
+
+span.li {
+    color: #2879d0;
+}
+span.li:after {
+    color: #666;
+    content: " — ";
+}
+
+li {
+    padding-bottom: .2em;
+}
+
+a.cite:before {
+    content: attr(href);
+}
+a.cite {
+  color: #666;
+}
+
+span.title {
+    font-style: italic;
+}
+
+span.name {
+  font-variant:small-caps;
+}
+
 aside#sidebar {
   float: right;
   width: 200px;
@@ -565,7 +618,7 @@ code, pre {
   margin-bottom: 30px;
   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
   font-size: 13px;
-  color: #222;
+  color: #666;
 }
 
 code {
