@@ -123,8 +123,9 @@ abbr[title] {
 
 b,
 strong {
-  font-weight: normal;
-  color: #2879d0;
+    font-weight: normal;
+    font-style: italic;
+    /* color: #2879d0; */
 }
 
 /**
@@ -540,10 +541,11 @@ span.cite:after {
 }
 
 span.li {
-    color: #2879d0;
+    font-style: italic;
+    color: #444;
 }
 span.li:after {
-    color: #666;
+    color: #444;
     content: " — ";
 }
 
